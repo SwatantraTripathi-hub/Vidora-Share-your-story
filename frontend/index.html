@@ -3,6 +3,17 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Anti-flash theme script — must be first -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme') || 'system';
+      const isDark =
+        theme === 'dark' ||
+        (theme === 'system' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+    })();
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="./src/assets/vidora-logo-v3.svg" />
